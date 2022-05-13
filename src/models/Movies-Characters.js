@@ -7,6 +7,12 @@ export const MoviesCharacters = sequelize.define('Movies_Characters', {
     primaryKey: true,
     autoIncrement: true
   },
-  movieId: { type: DataTypes.INTEGER },
-  characterId: { type: DataTypes.INTEGER }
+  movieId: {
+    type: DataTypes.INTEGER,
+    foreignKey: true,
+  },
+  characterId: {
+    type: DataTypes.INTEGER,
+    foreignKey: true
+  }
 })

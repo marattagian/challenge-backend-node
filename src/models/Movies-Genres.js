@@ -7,6 +7,12 @@ export const MoviesGenres = sequelize.define('Movies_Genres', {
     primaryKey: true,
     autoIncrement: true
   },
-  movieId: { type: DataTypes.INTEGER },
-  genreId: { type: DataTypes.INTEGER }
+  movieId: {
+    type: DataTypes.INTEGER,
+    foreignKey: true,
+  },
+  genreId: {
+    type: DataTypes.INTEGER,
+    foreignKey: true
+  }
 })
