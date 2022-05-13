@@ -1,12 +1,12 @@
 import { DataTypes } from "sequelize"
 import { sequelize } from "../database/database.js"
 
-export const Genre = sequelize.define('genre', {
+export const MoviesCharacters = sequelize.define('Movies_Characters', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  name: { type: DataTypes.STRING },
-  image: { type: DataTypes.STRING },
+  movieId: { type: DataTypes.INTEGER },
+  characterId: { type: DataTypes.INTEGER }
 })

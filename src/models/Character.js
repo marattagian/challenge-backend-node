@@ -13,6 +13,5 @@ export const Character = sequelize.define('characters',{
   age: { type: DataTypes.INTEGER },
   weight: { type: DataTypes.FLOAT },
   height: { type: DataTypes.FLOAT },
-  story: { type: DataTypes.STRING },
-  movies: { type: DataTypes.ARRAY(DataTypes.STRING) },
+  story: { type: DataTypes.STRING }
 })
