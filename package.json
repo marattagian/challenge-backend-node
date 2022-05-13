@@ -1,0 +1,17 @@
+{
+  "name": "challenge-backend-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.19.0",
+    "sequelize-cockroachdb": "^6.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
