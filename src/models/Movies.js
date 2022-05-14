@@ -1,5 +1,7 @@
 import { DataTypes } from "sequelize"
 import { sequelize } from "../database/database.js"
+import { Character } from "./Character.js"
+import { Genre } from "./Genre.js"
 
 export const Movies = sequelize.define('movies', {
   id: {
@@ -12,3 +14,9 @@ export const Movies = sequelize.define('movies', {
   date: { type: DataTypes.DATE },
   score: { type: DataTypes.INTEGER },
 })
+
+Movies.belongsToMany(Character, { through: 'MoviesCharacter' })
+Character.belongsToMany(Movies, { through: 'MoviesCharacter' })
+
+Movies.belongsToMany(Genre, { through: 'MoviesGenre' })
+Genre.belongsToMany(Movies, { through: 'MoviesGenre'})

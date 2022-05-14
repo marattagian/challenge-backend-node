@@ -1,6 +1,8 @@
 import app from './app.js'
 import { sequelize } from "./database/database.js"
 import "./models/Character.js"
+import "./models/Genre.js"
+import "./models/Movies.js"
 
 async function main() {
   try {
