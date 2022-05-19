@@ -8,7 +8,7 @@ import { Character } from "./models/Character.js"
 
 async function main() {
   try {
-    await sequelize.sync()
+    await sequelize.sync({ force: true })
     await Character.sync({ force: true })
     app.listen(3000)
     console.log("Server is running on port", 3000)
