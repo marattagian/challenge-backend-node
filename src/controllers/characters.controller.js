@@ -2,7 +2,10 @@ import { Character } from "../models/Character.js"
 import { Movies } from "../models/Movies.js"
 
 export const getCharacters = async (req, res) => {
-  const characters = await Character.findAll({ include: Movies })
+  const characters = await Character.findAll({
+    attributes: [ 'image', 'name'],
+    include: Movies
+  })
   res.json(characters)
 }
 

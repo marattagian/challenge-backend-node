@@ -3,7 +3,10 @@ import { Character } from "../models/Character.js"
 
 export const getMovies = async (req, res) => {
   try {
-    const movies = await Movies.findAll({ include: Character })
+    const movies = await Movies.findAll({
+      attributes: [ 'image', 'title', 'date' ],
+      include: Character
+    })
     res.json(movies)
   } catch (error) {
     res.status(500).json({ message: error.message })
