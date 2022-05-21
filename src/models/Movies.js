@@ -9,10 +9,19 @@ export const Movies = sequelize.define('movies', {
     primaryKey: true,
     autoIncrement: true
   },
-  image: { type: DataTypes.STRING },
+  image: {
+    type: DataTypes.STRING,
+    validate: { isUrl: true }
+  },
   title: { type: DataTypes.STRING },
   date: { type: DataTypes.DATE },
-  score: { type: DataTypes.INTEGER },
+  score: {
+    type: DataTypes.INTEGER,
+    validate: {
+      max: 5,
+      min: 0
+    }
+  },
 })
 
 Movies.belongsToMany(Character, { through: 'MoviesCharacter' })

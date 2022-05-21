@@ -7,7 +7,10 @@ export const Character = sequelize.define('characters',{
     primaryKey: true,
     autoincrement: true,
   },
-  image: { type: DataTypes.STRING },
+  image: {
+    type: DataTypes.STRING,
+    validate: { isUrl: true }
+  },
   name: { type: DataTypes.STRING },
   age: { type: DataTypes.INTEGER },
   weight: { type: DataTypes.FLOAT },
