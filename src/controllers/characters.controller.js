@@ -2,11 +2,23 @@ import { Character } from "../models/Character.js"
 import { Movies } from "../models/Movies.js"
 
 export const getCharacters = async (req, res) => {
-  const characters = await Character.findAll({
-    attributes: [ 'image', 'name'],
-    include: Movies
-  })
-  res.json(characters)
+  try {
+    const where = {}
+    const { name, age, weight, movieId } = req.query
+    if (name) where.name = name
+    if (age) where.age = age
+    if (weight) where.weight = weight
+    if (movieId) where.movieId = movieId
+    const characters = await Character.findAll({
+      attributes: [ 'image', 'name'],
+      include: Movies,
+      where
+    })
+    res.json(characters)
+  } catch (error) {
+    return res.status(500).json({ message: error.message})
+  }
+
 }
 
 

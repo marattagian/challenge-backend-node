@@ -14,7 +14,7 @@ export const Movies = sequelize.define('movies', {
     validate: { isUrl: true }
   },
   title: { type: DataTypes.STRING },
-  date: { type: DataTypes.DATE },
+  date: { type: DataTypes.DATEONLY },
   score: {
     type: DataTypes.INTEGER,
     validate: {

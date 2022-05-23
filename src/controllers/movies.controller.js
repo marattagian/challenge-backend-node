@@ -3,9 +3,15 @@ import { Character } from "../models/Character.js"
 
 export const getMovies = async (req, res) => {
   try {
+    const where = {}
+    const { title, genre } = req.query
+    if (title) where.title = title
+    if (genre) where.genre = genre
     const movies = await Movies.findAll({
       attributes: [ 'image', 'title', 'date' ],
-      include: Character
+      include: Character,
+      where,
+      order: req.query.order ? [['date', req.query.order]] : []
     })
     res.json(movies)
   } catch (error) {
