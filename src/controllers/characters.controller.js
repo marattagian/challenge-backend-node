@@ -4,14 +4,16 @@ import { Movies } from "../models/Movies.js"
 export const getCharacters = async (req, res) => {
   try {
     const where = {}
-    const { name, age, weight, movieId } = req.query
+    const { name, age, weight } = req.query
     if (name) where.name = name
     if (age) where.age = age
     if (weight) where.weight = weight
-    if (movieId) where.movieId = movieId
     const characters = await Character.findAll({
       attributes: [ 'image', 'name'],
-      include: Movies,
+      include: {
+        model: Movies,
+        where: req.query.movies ? { id: req.query.movies } : {}
+      },
       where
     })
     res.json(characters)
