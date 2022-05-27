@@ -1,9 +1,8 @@
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import { User } from '../models/Users'
+import { User } from '../models/Users.js'
 
 const secret = process.env.JWT_SECRET
-const createToken = (payload) => jwt.sign(payload, secret)
 
 export const signIn = async (req, res) => {
   try {
@@ -12,7 +11,7 @@ export const signIn = async (req, res) => {
     if (!user) res.status(401).json({ message: 'User not found' })
     const match = await bcrypt.compare(password, user.password)
     if (match) {
-      const token = createToken(user)
+      const token = jwt.sign(user.dataValues, secret)
       res.json({ token })
     }
   } catch (error) {

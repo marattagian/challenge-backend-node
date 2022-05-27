@@ -1,5 +1,5 @@
 import { Router } from "express";
-import checkAuth from "../middleware/checkAuth.js"
+import { checkAuth } from "../middleware/checkAuth.js"
 import {
   createCharacter,
   getCharacters,

@@ -1,7 +1,7 @@
-import { User } from '../models/Users'
+import { User } from '../models/Users.js'
 import jwt from 'jsonwebtoken'
 
-module.exports = async (req, res, next) => {
+export const checkAuth = async (req, res, next) => {
   try {
     const token = req.headers.authorization.split(' ')[1]
     if (token) {
@@ -10,11 +10,13 @@ module.exports = async (req, res, next) => {
       if (existingUser) {
         req.user = decoded
         req.token = token
-        next()
+      } else {
+        res.status(401).json({ error: 'Unauthorized' })
       }
-      res.status(401).json({ error: 'Unauthorized' })
+    } else {
+      res.status(401).json({ error: 'Missing token' })
     }
-    res.status(401).json({ error: 'Unauthorized' })
+    next()
   } catch (error) {
     res.status(400).json({ error: error.message })
   }

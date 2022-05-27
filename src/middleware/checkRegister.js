@@ -1,6 +1,6 @@
-import { User } from '../models/Users'
+import { User } from '../models/Users.js'
 
-module.exports = async (req, res, next) => {
+export const checkRegister = async (req, res, next) => {
   try {
     const { email } = req.body
     const user = await User.findOne({ where: { email }})
