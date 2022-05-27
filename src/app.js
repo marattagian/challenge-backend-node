@@ -1,4 +1,5 @@
 import express from "express"
+import 'dotenv/config'
 import charactersRoutes from "./routes/characters.route.js"
 import moviesRoutes from "./routes/movies.route.js"
 import authRoutes from "./routes/auth.routes.js"

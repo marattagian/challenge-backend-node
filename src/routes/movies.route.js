@@ -1,4 +1,5 @@
 import { Router } from "express";
+import checkAuth from "../middleware/checkAuth.js"
 import {
   getMovies,
   getMovie,
@@ -11,8 +12,8 @@ const router = new Router()
 
 router.get('/movies', getMovies)
 router.get('/movies/:id',getMovie)
-router.post('/movies', createMovie)
-router.put('/movies/:id', updateMovie)
-router.delete('/movies/:id', deleteMovie)
+router.post('/movies', checkAuth, createMovie)
+router.put('/movies/:id', checkAuth, updateMovie)
+router.delete('/movies/:id', checkAuth, deleteMovie)
 
 export default router

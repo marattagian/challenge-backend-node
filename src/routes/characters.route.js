@@ -1,4 +1,5 @@
 import { Router } from "express";
+import checkAuth from "../middleware/checkAuth.js"
 import {
   createCharacter,
   getCharacters,
@@ -11,8 +12,8 @@ const router = Router()
 
 router.get('/characters', getCharacters)
 router.get('/characters/:id', getCharacter)
-router.delete('/characters/:id', deleteCharacter)
-router.put('/characters/:id', updateCharacter)
-router.post('/characters', createCharacter)
+router.delete('/characters/:id', checkAuth, deleteCharacter)
+router.put('/characters/:id', checkAuth, updateCharacter)
+router.post('/characters', checkAuth, createCharacter)
 
 export default router
