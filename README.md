@@ -31,7 +31,7 @@ curl --create-dirs -o $HOME/.postgresql/root.crt -O https://cockroachlabs.cloud/
 
 ## User Model
 
-```json
+```js
 {
   email: "john@doe.com",
   password: "password"
@@ -48,7 +48,7 @@ curl --create-dirs -o $HOME/.postgresql/root.crt -O https://cockroachlabs.cloud/
 
 ### Character Model
 
-```json
+```js
 {
   id: 1,
   image: "milo.image.url",
@@ -70,7 +70,7 @@ curl --create-dirs -o $HOME/.postgresql/root.crt -O https://cockroachlabs.cloud/
 
 ### Movie Model
 
-```json
+```js
 {
   id: 1,
   image: "movie.image.url",
