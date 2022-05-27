@@ -35,7 +35,7 @@ export const createCharacter = async (req, res) => {
       age, 
       weight,
       story,
-      movies
+      movies: movies || []
     }, { include: Movies })
 
     res.json(newCharacter)

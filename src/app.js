@@ -9,6 +9,6 @@ const app = express()
 app.use(express.json())
 app.use(charactersRoutes)
 app.use(moviesRoutes)
-app.use(authRoutes)
+app.use('/auth', authRoutes)
 
 export default app

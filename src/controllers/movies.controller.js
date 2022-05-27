@@ -38,7 +38,7 @@ export const createMovie = async (req, res) => {
       title,
       date,
       score,
-      characters
+      characters: characters || []
     }, { include: Character })
     res.json(movie)
   } catch (error) {
