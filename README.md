@@ -1,6 +1,6 @@
 # Node Challenge - Alkemy
 
-This challenge is one many that can be found at <https://campus.alkemy.org> and it's for the alkemy acceleration.
+This challenge can be found at <https://campus.alkemy.org>.
 
 The project uses `nodejs` with `express` for the main app and `sequelize` as ORM. Under the hood uses jwt for authentication, bcrypt for encryption and dotenv for accessing the `.env` variables.
 
